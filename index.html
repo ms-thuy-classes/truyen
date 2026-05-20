@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Chi tiết truyện - Pastel Stories</title>
+    <title>Pastel Stories – Đọc truyện online</title>
     <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
@@ -13,26 +13,31 @@
         <header class="header">
             <div class="container header__inner">
                 <a href="index.html" class="logo"><i class="fas fa-book-open"></i> <span>Pastel Stories</span></a>
-                <div class="search-box">
-                    <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Tìm truyện...">
-                </div>
+                <div class="search-box"><i class="fas fa-search"></i><input type="text" id="searchInput" placeholder="Tìm truyện..."></div>
                 <button class="btn-icon" id="darkModeToggle"><i class="fas fa-moon"></i></button>
             </div>
         </header>
         <main class="main">
             <div class="container">
-                <div id="storyDetail" class="story-detail">Đang tải thông tin truyện...</div>
-                <div class="chapters-section">
-                    <h2>📖 Danh sách chương</h2>
-                    <div id="chaptersList">Đang tải danh sách chương...</div>
+                <div class="hero"><h1>📚 Thư viện truyện pastel</h1><p>Ngôn tình · Đam mỹ · Linh dị · Xuyên không</p></div>
+                
+                <!-- Bộ lọc thể loại + trạng thái -->
+                <div class="filters">
+                    <button class="filter-btn active" data-genre="all">Tất cả</button>
+                    <button class="filter-btn" data-genre="ngon-tinh">💖 Ngôn tình</button>
+                    <button class="filter-btn" data-genre="dam-my">🌈 Đam mỹ</button>
+                    <button class="filter-btn" data-genre="linh-di">👻 Linh dị</button>
+                    <button class="filter-btn" data-genre="xuyen-khong">⏳ Xuyên không</button>
+                    <button class="filter-btn" data-status="full">✅ Đã full</button>
+                    <button class="filter-btn" data-sort="latest">🕒 Mới cập nhật</button>
                 </div>
+
+                <div class="stories-grid" id="storiesGrid">Đang tải truyện...</div>
             </div>
         </main>
-        <footer class="footer"><div class="container"><p>🌸 Pastel Stories – Đọc truyện online nhẹ nhàng</p></div></footer>
+        <footer class="footer"><div class="container"><p>🌸 Pastel Stories – Đọc truyện online nhẹ nhàng, miễn phí</p></div></footer>
     </div>
-
-    <script src="js/data.js"></script>
-    <script src="js/story.js"></script>
+    <script src="js/utils.js"></script>
+    <script src="js/main.js"></script>
 </body>
 </html>
