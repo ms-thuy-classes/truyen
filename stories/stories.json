@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "slug": "ngon-tinh-mau-hong",
+    "title": "Ngôn tình màu hồng",
+    "author": "Thanh Pastel",
+    "genre": "ngon-tinh",
+    "status": "full",
+    "lastUpdate": "2025-03-20",
+    "cover": "https://picsum.photos/id/20/300/450"
+  },
+  {
+    "id": 2,
+    "slug": "dam-my-duoi-anh-trang",
+    "title": "Đam mỹ dưới ánh trăng",
+    "author": "Minh Nguyệt",
+    "genre": "dam-my",
+    "status": "ongoing",
+    "lastUpdate": "2025-03-18",
+    "cover": "https://picsum.photos/id/104/300/450"
+  },
+  {
+    "id": 3,
+    "slug": "linh-di-xac-song",
+    "title": "Linh dị – Xác sống",
+    "author": "Hoàng Hải",
+    "genre": "linh-di",
+    "status": "full",
+    "lastUpdate": "2025-03-15",
+    "cover": "https://picsum.photos/id/29/300/450"
+  },
+  {
+    "id": 4,
+    "slug": "xuyen-khong-ve-co-dai",
+    "title": "Xuyên không về cổ đại",
+    "author": "Lam Ngọc",
+    "genre": "xuyen-khong",
+    "status": "ongoing",
+    "lastUpdate": "2025-03-22",
+    "cover": "https://picsum.photos/id/106/300/450"
+  }
+]
