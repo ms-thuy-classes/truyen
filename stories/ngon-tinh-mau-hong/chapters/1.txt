@@ -1,0 +1,3 @@
+Đây là nội dung chương 1. Bạn có thể viết bằng tiếng Việt, dấu câu, xuống dòng thoải mái.
+
+Trình duyệt sẽ giữ nguyên định dạng.
