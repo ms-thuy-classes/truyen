@@ -1,0 +1,13 @@
+{
+  "title": "Ngôn tình màu hồng",
+  "author": "Thanh Pastel",
+  "genre": "ngon-tinh",
+  "description": "Mối tình ngọt ngào giữa cô sinh viên và chàng CEO lạnh lùng.",
+  "cover": "https://picsum.photos/id/20/300/450",
+  "status": "full",
+  "chapters": [
+    { "id": 1, "title": "Gặp gỡ định mệnh", "file": "chapters/1.txt" },
+    { "id": 2, "title": "Lời tỏ tình", "file": "chapters/2.txt" },
+    { "id": 3, "title": "Hạnh phúc mãi mãi", "file": "chapters/3.txt" }
+  ]
+}
