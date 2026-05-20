@@ -1,67 +1,55 @@
-document.addEventListener('DOMContentLoaded', () => {
-    renderStories(storiesData);
-    setupSearch();
-    setupFilters();
-    setupDarkMode();
-});
+console.log("🔵 story.js: Bắt đầu chạy");
 
-function renderStories(stories) {
-    const grid = document.getElementById('storiesGrid');
-    if (!grid) return;
-    if (stories.length === 0) {
-        grid.innerHTML = '<div class="loading">✨ Không tìm thấy truyện phù hợp</div>';
+document.addEventListener('DOMContentLoaded', () => {
+    console.log("🟢 DOM đã sẵn sàng");
+    
+    const params = new URLSearchParams(window.location.search);
+    const storyId = params.get('id');
+    console.log("📌 storyId từ URL:", storyId);
+
+    if (!storyId) {
+        document.getElementById('storyDetail').innerHTML = '<div class="loading">❌ Không có mã truyện. <a href="index.html">Về trang chủ</a></div>';
+        document.getElementById('chaptersList').innerHTML = '';
         return;
     }
-    grid.innerHTML = stories.map(story => `
-        <a href="story.html?id=${story.id}" class="story-card">
-            <div class="card-img">
-                <img src="${story.cover}" alt="${story.title}" loading="lazy">
-            </div>
-            <div class="card-info">
-                <h3>${story.title}</h3>
-                <p>${story.author}</p>
+
+    const story = getStoryById(storyId);
+    if (!story) {
+        document.getElementById('storyDetail').innerHTML = `<div class="loading">❌ Không tìm thấy truyện với ID = ${storyId}</div>`;
+        document.getElementById('chaptersList').innerHTML = '';
+        return;
+    }
+
+    // Hiển thị chi tiết
+    document.getElementById('storyDetail').innerHTML = `
+        <div class="story-header">
+            <div class="story-cover"><img src="${story.cover}" alt="${story.title}"></div>
+            <div class="story-meta">
+                <h1>${story.title}</h1>
+                <p><i class="fas fa-user-pen"></i> ${story.author}</p>
                 <p><i class="fas fa-tag"></i> ${story.genre}</p>
+                <p>${story.description}</p>
             </div>
+        </div>
+    `;
+
+    // Hiển thị danh sách chương
+    const chaptersDiv = document.getElementById('chaptersList');
+    if (!story.chapters || story.chapters.length === 0) {
+        chaptersDiv.innerHTML = '<p>Chưa có chương nào.</p>';
+        return;
+    }
+
+    chaptersDiv.innerHTML = story.chapters.map((ch, idx) => `
+        <a href="read.html?storyId=${story.id}&chapterId=${ch.id}" class="chapter-item">
+            <span><i class="fas fa-bookmark"></i> Chương ${idx+1}: ${ch.title}</span>
         </a>
     `).join('');
-}
+    
+    console.log(`✅ Đã render ${story.chapters.length} chương cho truyện ${story.title}`);
+});
 
-function setupSearch() {
-    const input = document.getElementById('searchInput');
-    if (!input) return;
-    input.addEventListener('input', (e) => {
-        const keyword = e.target.value.toLowerCase().trim();
-        const filtered = storiesData.filter(s => 
-            s.title.toLowerCase().includes(keyword) || 
-            s.author.toLowerCase().includes(keyword)
-        );
-        renderStories(filtered);
-        // reset active filter
-        document.querySelectorAll('.filter-btn').forEach(btn => btn.classList.remove('active'));
-        document.querySelector('.filter-btn[data-genre="all"]')?.classList.add('active');
-    });
-}
-
-function setupFilters() {
-    const btns = document.querySelectorAll('.filter-btn');
-    btns.forEach(btn => {
-        btn.addEventListener('click', () => {
-            const genre = btn.getAttribute('data-genre');
-            btns.forEach(b => b.classList.remove('active'));
-            btn.classList.add('active');
-            if (genre === 'all') {
-                renderStories(storiesData);
-            } else {
-                const filtered = storiesData.filter(s => s.genre === genre);
-                renderStories(filtered);
-            }
-            // reset search input
-            const searchInput = document.getElementById('searchInput');
-            if (searchInput) searchInput.value = '';
-        });
-    });
-}
-
+// Dark mode (giống như cũ)
 function setupDarkMode() {
     const toggle = document.getElementById('darkModeToggle');
     if (!toggle) return;
@@ -70,5 +58,17 @@ function setupDarkMode() {
     toggle.addEventListener('click', () => {
         document.body.classList.toggle('dark-mode');
         localStorage.setItem('darkMode', document.body.classList.contains('dark-mode'));
+    });
+}
+setupDarkMode();
+
+// Tìm kiếm ở header (chuyển về index)
+const searchInput = document.getElementById('searchInput');
+if (searchInput) {
+    searchInput.addEventListener('keypress', (e) => {
+        if (e.key === 'Enter') {
+            const keyword = e.target.value.trim();
+            if (keyword) window.location.href = `index.html?search=${encodeURIComponent(keyword)}`;
+        }
     });
 }
