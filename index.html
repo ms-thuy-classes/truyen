@@ -2,11 +2,9 @@
 <html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Thư viện truyện pastel</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;14..32,400;14..32,500;14..32,600;14..32,700&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi tiết truyện - Pastel Stories</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <link rel="stylesheet" href="css/style.css">
 </head>
@@ -14,52 +12,27 @@
     <div class="app">
         <header class="header">
             <div class="container header__inner">
-                <a href="index.html" class="logo">
-                    <i class="fas fa-book-open"></i> 
-                    <span>Pastel Stories</span>
-                </a>
+                <a href="index.html" class="logo"><i class="fas fa-book-open"></i> <span>Pastel Stories</span></a>
                 <div class="search-box">
                     <i class="fas fa-search"></i>
-                    <input type="text" id="searchInput" placeholder="Tìm kiếm truyện..." autocomplete="off">
+                    <input type="text" id="searchInput" placeholder="Tìm truyện...">
                 </div>
-                <div class="user-actions">
-                    <button class="btn-icon" id="darkModeToggle" aria-label="Chế độ tối">
-                        <i class="fas fa-moon"></i>
-                    </button>
-                </div>
+                <button class="btn-icon" id="darkModeToggle"><i class="fas fa-moon"></i></button>
             </div>
         </header>
-
         <main class="main">
             <div class="container">
-                <section class="hero">
-                    <h1>✨ Thế giới truyện nhẹ nhàng</h1>
-                    <p>Trải nghiệm đọc truyện với giao diện pastel thanh lịch, lấy cảm hứng từ phong cách Claude.</p>
-                </section>
-
-                <div class="filters">
-                    <button class="filter-btn active" data-genre="all">Tất cả</button>
-                    <button class="filter-btn" data-genre="fantasy">Fantasy</button>
-                    <button class="filter-btn" data-genre="romance">Romance</button>
-                    <button class="filter-btn" data-genre="mystery">Mystery</button>
-                </div>
-
-                <div class="stories-grid" id="storiesGrid">
-                    <!-- Card truyện sẽ được inject bằng JS -->
-                    <div class="loading">Đang tải truyện...</div>
+                <div id="storyDetail" class="story-detail">Đang tải thông tin truyện...</div>
+                <div class="chapters-section">
+                    <h2>📖 Danh sách chương</h2>
+                    <div id="chaptersList">Đang tải danh sách chương...</div>
                 </div>
             </div>
         </main>
-
-        <footer class="footer">
-            <div class="container">
-                <p>🌸 Pastel Stories – Đọc truyện online nhẹ nhàng, miễn phí.</p>
-                <p class="footer-credit">Design inspired by Claude Anthropic • Màu pastel & tối giản</p>
-            </div>
-        </footer>
+        <footer class="footer"><div class="container"><p>🌸 Pastel Stories – Đọc truyện online nhẹ nhàng</p></div></footer>
     </div>
 
     <script src="js/data.js"></script>
-    <script src="js/main.js"></script>
+    <script src="js/story.js"></script>
 </body>
 </html>
